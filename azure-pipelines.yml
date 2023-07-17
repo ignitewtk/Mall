@@ -7,12 +7,7 @@ trigger:
 - feature/product-module
 
 stages:
-- stage: Build
-  jobs: 
-- stage: Deploy
-  jobs: 
-- stage: QA
-- stage: Production
+
 
 # pool:
 #   name: default
