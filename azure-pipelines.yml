@@ -44,43 +44,14 @@ stages:
       name: default
     steps:
     - script: echo Deploy stage, job 1, step 1
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: 'current'
-        downloadType: single
-        downloadPath: '$(System.ArtifactsDirectory)'
-    - task: AzureWebApp@1
-      inputs:
-        azureSubscription: 'Azure subscription 1'
-        appType: 'webAppLinux'
-        appName: 'mallts-lnx'
-        package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-
-# pool:
-#   name: default
-# steps:
-# - task: NodeTool@0
-#   displayName: 'Use Node 16.x'
-#   inputs:
-#     versionSpec: 16.x
-
-# - task: Npm@1
-#   displayName: 'npm install'
-#   inputs:
-#     verbose: false
-
-# - task: Npm@1
-#   displayName: 'npm build'
-#   inputs:
-#     command: custom
-#     verbose: false
-#     customCommand: 'run build'
-
-# - task: ArchiveFiles@2
-#   displayName: 'Archive build'
-#   inputs:
-#     rootFolderOrFile: build
-#     includeRootFolder: false
-
-# - task: PublishBuildArtifacts@1
-#   displayName: 'Publish Artifact: drop'
+    # - task: DownloadBuildArtifacts@0
+    #   inputs:
+    #     buildType: 'current'
+    #     downloadType: single
+    #     downloadPath: '$(System.ArtifactsDirectory)'
+    # - task: AzureWebApp@1
+    #   inputs:
+    #     azureSubscription: 'Azure subscription 1'
+    #     appType: 'webAppLinux'
+    #     appName: 'mallts-lnx'
+    #     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
