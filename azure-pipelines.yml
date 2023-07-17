@@ -51,9 +51,9 @@ stages:
         downloadPath: '$(System.ArtifactsDirectory)'
     - task: AzureWebApp@1
       inputs:
-        azureSubscription: 'Azure subscription 1'
+        azureSubscription: Azure subscription 1
         appType: 'webApp'
-        appName: 'mallts-lnx'
+        appName: mallts-lnx
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 # pool:
