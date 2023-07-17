@@ -7,7 +7,7 @@ trigger:
 - feature/product-module
 
 stages:
-- stage: "Build"
+- stage: Build
   jobs:
   - job: "Build"
     pool:
@@ -35,16 +35,26 @@ stages:
         includeRootFolder: false
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
-      
-- stage: "Deploy"
+
+- stage: Deploy
+  dependsOn: Build
   jobs:
   - job: "Deploy"
-    dependsOn: "Build"
     pool:
       name: default
     steps:
     - script: echo Deploy stage, job 1, step 1
-
+    - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: 'current'
+          downloadType: single
+          downloadPath: '$(System.ArtifactsDirectory)'
+    - task: AzureWebApp@1
+      inputs:
+        azureSubscription: 'Azure subscription 1'
+        appType: 'webApp'
+        appName: 'mallts-lnx'
+        package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 # pool:
 #   name: default
