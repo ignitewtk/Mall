@@ -7,7 +7,20 @@ trigger:
 - feature/product-module
 
 stages:
-
+- stage: "Build"
+  jobs:
+  - job: "Build"
+    pool:
+      name: default
+    steps:
+    - script: echo Build stage, job 1, step 1
+- stage: "Deploy"
+  jobs:
+  - job: "Deploy"
+    pool:
+      name: default
+    steps:
+    - script: echo Deploy stage, job 1, step 1
 
 # pool:
 #   name: default
