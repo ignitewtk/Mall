@@ -8,9 +8,9 @@ trigger:
 
 stages:
 - stage: Build
-  jobs: Build
+  jobs: 
 - stage: Deploy
-  jobs: Deploy
+  jobs: 
 - stage: QA
 - stage: Production
 
