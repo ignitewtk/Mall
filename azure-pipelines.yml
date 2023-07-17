@@ -6,31 +6,41 @@
 trigger:
 - feature/product-module
 
-pool:
-  name: default
-steps:
-- task: NodeTool@0
-  displayName: 'Use Node 16.x'
-  inputs:
-    versionSpec: 16.x
+stages:
+- stage: Build
+  jobs: Build
+  - job: Build
+- stage: Deploy
+  jobs: Deploy
+  - job: Deploy
+- stage: QA
+- stage: Production
 
-- task: Npm@1
-  displayName: 'npm install'
-  inputs:
-    verbose: false
+# pool:
+#   name: default
+# steps:
+# - task: NodeTool@0
+#   displayName: 'Use Node 16.x'
+#   inputs:
+#     versionSpec: 16.x
 
-- task: Npm@1
-  displayName: 'npm build'
-  inputs:
-    command: custom
-    verbose: false
-    customCommand: 'run build'
+# - task: Npm@1
+#   displayName: 'npm install'
+#   inputs:
+#     verbose: false
 
-- task: ArchiveFiles@2
-  displayName: 'Archive build'
-  inputs:
-    rootFolderOrFile: build
-    includeRootFolder: false
+# - task: Npm@1
+#   displayName: 'npm build'
+#   inputs:
+#     command: custom
+#     verbose: false
+#     customCommand: 'run build'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
+# - task: ArchiveFiles@2
+#   displayName: 'Archive build'
+#   inputs:
+#     rootFolderOrFile: build
+#     includeRootFolder: false
+
+# - task: PublishBuildArtifacts@1
+#   displayName: 'Publish Artifact: drop'
