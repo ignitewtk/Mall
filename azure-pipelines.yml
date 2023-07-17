@@ -14,13 +14,37 @@ stages:
       name: default
     steps:
     - script: echo Build stage, job 1, step 1
+    - task: NodeTool@0
+      displayName: 'Use Node 16.x'
+      inputs:
+        versionSpec: 16.x
+    - task: Npm@1
+      displayName: 'npm install'
+      inputs:
+        verbose: false
+    - task: Npm@1
+      displayName: 'npm build'
+      inputs:
+        command: custom
+        verbose: false
+        customCommand: run build
+    - task: ArchiveFiles@2
+      displayName: 'Archive build'
+      inputs:
+        rootFolderOrFile: build
+        includeRootFolder: false
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      
 - stage: "Deploy"
   jobs:
   - job: "Deploy"
+    dependsOn: "Build"
     pool:
       name: default
     steps:
     - script: echo Deploy stage, job 1, step 1
+
 
 # pool:
 #   name: default
