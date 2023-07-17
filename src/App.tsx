@@ -1,11 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Theme from './components/Theme';
+
+
+type Props = {
+  message: string
+}
 
 function App() {
   return (
     <div className="App">
-      <p> 202307171508 </p>
+      <Theme message="hello"/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+#theme-header {
+  background-color: black;
+  height: 10vh;
+  width: 100vw;
+  color: white;
+}
+
+#theme-body {
+  background-color: whitesmoke;
+  height: 80vh;
+  width: 100vw;
+}
+
+#theme-footer {
+  background-color: black;
+  height: 10vh;
+  width: 100vw;
+  color: white;
+}
