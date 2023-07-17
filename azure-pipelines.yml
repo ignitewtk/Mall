@@ -5,7 +5,6 @@
 
 trigger:
 - feature/product-module
-
 stages:
 - stage: Build
   jobs:
@@ -36,14 +35,14 @@ stages:
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
 
-- stage: Deploy
-  dependsOn: Build
-  jobs:
-  - job: "Deploy"
-    pool:
-      name: default
-    steps:
-    - script: echo Deploy stage, job 1, step 1
+# - stage: Deploy
+#   dependsOn: Build
+#   jobs:
+#   - job: "Deploy"
+#     pool:
+#       name: default
+#     steps:
+#     - script: echo Deploy stage, job 1, step 1
     # - task: DownloadBuildArtifacts@0
     #   inputs:
     #     buildType: 'current'
