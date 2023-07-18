@@ -15,10 +15,24 @@ code {
 
 #theme-header {
   background-color: black;
-  height: 10vh;
   width: 100vw;
   color: white;
   text-align: center;
+  padding: 10px 0;
+}
+
+#main-menu {
+  color: rgb(81, 80, 80);
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  height: 50px;
+  text-align: center;
+}
+
+.menu-button {
+  margin: 0 30px;
+  width: 120px;
+  height: 100%;
 }
 
 #theme-body {

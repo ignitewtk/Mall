@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import ProductList from './products/ProductList';
 import Filter from './products/Filter';
+import MainMenu from './MainMenu';
 
 type Props = {
     message: string;
@@ -18,8 +19,11 @@ class Theme extends React.Component<Props> {
         return (
             <div>
                 <Box id='theme-header'> 
-                    <p> 202307171508 </p>
-                    <p> Header </p> </Box>
+                    <span> 202307171508 </span>
+                    <div> Header </div>
+                    
+                </Box>
+                <Box id='theme-menu'> <MainMenu /> </Box>
                 <Container id='theme-body'>
                     <Filter />
                     <ProductList />
