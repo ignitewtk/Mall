@@ -5,6 +5,7 @@ import ProductList from './products/ProductList';
 import Filter from './products/Filter';
 import MainMenu from './MainMenu';
 import AccountMenu from './AccountMenu';
+import { TransactionView } from './Transactions';
 
 type Props = {
     message: string;
@@ -25,6 +26,9 @@ class Theme extends React.Component<Props> {
                 <Container id='theme-body'>
                     <Filter />
                     <ProductList />
+                </Container>
+                <Container>
+                    <TransactionView />
                 </Container>
                 <Box id='theme-footer'> Footer </Box>
             </div>
