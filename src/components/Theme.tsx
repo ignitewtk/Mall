@@ -4,13 +4,10 @@ import Container from '@mui/material/Container'
 import ProductList from './products/ProductList';
 import Filter from './products/Filter';
 import MainMenu from './MainMenu';
+import AccountMenu from './AccountMenu';
 
 type Props = {
     message: string;
-}
-
-type States = {
-    s: number
 }
 
 class Theme extends React.Component<Props> {
@@ -20,10 +17,11 @@ class Theme extends React.Component<Props> {
             <div>
                 <Box id='theme-header'> 
                     <span> 202307171508 </span>
-                    <div> Header </div>
-                    
+                    <span> Header </span>
+                    <AccountMenu />
                 </Box>
-                <Box id='theme-menu'> <MainMenu /> </Box>
+                
+                <Box id='theme-menu'> <MainMenu message={"mock message"}/> </Box>
                 <Container id='theme-body'>
                     <Filter />
                     <ProductList />

@@ -1,9 +1,9 @@
-import { Box, Button, Menu, MenuItem } from '@mui/material';
+import { Button, Menu, MenuItem } from '@mui/material';
 import * as React from 'react'
 import Fade from '@mui/material/Fade';
 
 
-function MainMenu() {
+function MainMenu({ message }: {message: string}) {
     const [anchorEl, setAnchorEl] = React.useState<null|HTMLElement>(null)
     const open = Boolean(anchorEl)
 
@@ -37,6 +37,7 @@ function MainMenu() {
                     <Menu 
                         anchorEl={anchorEl}
                         open={open}
+                        onClose={handleClose}
                         TransitionComponent={Fade}>
                         {
                             menuItems.map((menuItem) =>
