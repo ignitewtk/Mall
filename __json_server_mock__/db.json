@@ -1,0 +1,35 @@
+{
+  "dates": [
+      {
+          "dateId": "07082023",
+          "date": "07-08-2023"
+      },
+      {
+          "dateId": "05082023",
+          "date": "05-08-2023"
+      }
+
+  ],
+  "transactions": [
+      {
+          "id": 1,
+          "dateId": "07082023",
+          "desc": "Vegetables"
+      },
+      {
+          "id": 2,
+          "dateId": "07082023",
+          "desc": "Meat"
+      },
+      {
+          "id": 3,
+          "dateId": "05082023",
+          "desc": "Other"
+      },
+      {
+          "id": 4,
+          "dateId": "05082023",
+          "desc": "Pets"
+      }
+  ]
+}
