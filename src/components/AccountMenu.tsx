@@ -20,24 +20,24 @@ function AccountMenu() {
     return (
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-            <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-            <Typography sx={{ minWidth: 100 }}>Profile</Typography>
-            <IconButton>
-                <ShoppingCartIcon style={{ color: 'white' }}/>
-            </IconButton>
-            <Tooltip title="Account settings">
-            <IconButton
-                onClick={handleClick}
-                size="small"
-                sx={{ ml: 2 }}
-                aria-controls={open ? 'account-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-            >
-                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-            </IconButton>
-            </Tooltip>
-        </Box>
+                <Typography sx={{ minWidth: 100 }}>Contact</Typography>
+                <Typography sx={{ minWidth: 100 }}>Profile</Typography>
+                <IconButton>
+                    <ShoppingCartIcon style={{ color: 'white' }}/>
+                </IconButton>
+                <Tooltip title="Account settings">
+                <IconButton
+                    onClick={handleClick}
+                    size="small"
+                    sx={{ ml: 2 }}
+                    aria-controls={open ? 'account-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                >
+                    <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                </IconButton>
+                </Tooltip>
+            </Box>
             <Menu
                 anchorEl={anchorEl}
                 id="account-menu"
