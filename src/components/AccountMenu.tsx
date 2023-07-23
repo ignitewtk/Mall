@@ -1,5 +1,6 @@
-import { Avatar, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 import * as React from 'react'
+import { Link } from 'react-router-dom';
+import { Avatar, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
@@ -21,7 +22,7 @@ function AccountMenu() {
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                 <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-                <Typography sx={{ minWidth: 100 }}>Profile</Typography>
+                <Typography sx={{ minWidth: 100 }}><Link to='login'> Profile </Link></Typography>
                 <IconButton>
                     <ShoppingCartIcon style={{ color: 'white' }}/>
                 </IconButton>
@@ -77,7 +78,7 @@ function AccountMenu() {
                 <Avatar /> Profile
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                <Avatar /> My account
+                <Avatar /> <Link to='transaction'> My Account </Link>
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={handleClose}>

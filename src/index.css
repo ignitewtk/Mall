@@ -22,7 +22,7 @@ code {
 }
 
 #account-menu {
-  margin: 0 10px 0 0;
+  margin: 0 20px 0 0;
   float: right;
 }
 
@@ -57,7 +57,7 @@ code {
 
 #product-filter {
   background-color: whitesmoke;
-  width: 20%;
+  width: 28%;
   height: 100%;
   float: left;
 }
@@ -104,7 +104,7 @@ code {
 
 #product-list {
   background-color: aliceblue;
-  width: 75%;
+  width: 72%;
   height: 100%;
   /* display: flex; */
   overflow: scroll;
@@ -114,7 +114,7 @@ code {
 .product-list-item {
   padding: 5px;
   float: left;
-  width: 200px;
+  max-width: 250px;
   height: 250px;
   margin: 5px;
   padding: 0;
