@@ -3,6 +3,7 @@ import * as React from 'react'
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function AccountMenu() {
 
@@ -21,6 +22,9 @@ function AccountMenu() {
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
             <Typography sx={{ minWidth: 100 }}>Contact</Typography>
             <Typography sx={{ minWidth: 100 }}>Profile</Typography>
+            <IconButton>
+                <ShoppingCartIcon style={{ color: 'white' }}/>
+            </IconButton>
             <Tooltip title="Account settings">
             <IconButton
                 onClick={handleClick}
