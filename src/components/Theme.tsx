@@ -14,7 +14,7 @@ import { TransactionView } from './Transactions';
 import { ProductsView } from './products';
 import { Product } from './products/Product';
 import { useDocumentTitle } from '../utils';
-
+import { Test } from './Test';
 
 
 const Theme = () => {
@@ -29,15 +29,16 @@ const Theme = () => {
             <Box id='theme-menu'> <MainMenu message={"mock message"}/> </Box>
             <Container id='theme-body'>
                 <Routes>
-                    
-                        <Route path={'/'} element={<ProductsView />} />
-                        <Route path={'/products'} element={<ProductsView />} />
-                        <Route path={'/:productId/*'} element={<Product productId='idnfj325' productName='product name' productPrice={23}/>}/>
-                        <Route path={'/login'} element={<LoginView />}/>
-                        <Route path={'/transaction'} element={<TransactionView />}/>
-                    </Routes>
+                    <Route path={'/'} element={<ProductsView />} />
+                    <Route path={'/test'} element={<Test />} />
+                    <Route path={'/products'} element={<ProductsView />} />
+                    <Route path={'/:productId/*'} element={<Product productId='idnfj325' productName='product name' productPrice={23}/>}/>
+                    <Route path={'/login'} element={<LoginView />}/>
+                    <Route path={'/transaction'} element={<TransactionView />}/>
+                </Routes>
                 
             </Container>
+
             <Box id='theme-footer'> Footer </Box>
         </Router>
     )
