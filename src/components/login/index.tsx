@@ -1,26 +1,14 @@
 import React, { FormEvent } from 'react'
 import { useDocumentTitle } from '../../utils'
-
+import { AuthForm, useAuth } from '../../context/AuthProvider'
+import { handleUserResponse } from '../../auth-provider'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
 export const LoginView = () => {
     useDocumentTitle("Login", false)
-    const login = (param: {username: string, password: string}) => {
-        fetch(`${apiUrl}/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(param)
-        }).then(
-            async (response: Response) => {
-                if (response.ok) {
+    const { login, user, register, logout } = useAuth()
 
-                }
-            }
-        )
-    }
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event?.preventDefault()
         const username = (event.currentTarget.elements[0] as HTMLInputElement).value
@@ -29,6 +17,8 @@ export const LoginView = () => {
     }
     return (
         <form onSubmit={handleSubmit}>
+            {user?user?.name: null}
+            {/* token: {user?.token} */}
             <div>
                 <label htmlFor="username"> Username </label>
                 <input type="text" id={'username'}/>

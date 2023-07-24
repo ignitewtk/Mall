@@ -8,7 +8,7 @@ export interface AuthForm {
 }
 
 const AuthContext = React.createContext<{
-    user: User|null,
+    user: User|null|undefined,
     register: (form: AuthForm) => Promise<void>,
     login: (form: AuthForm) => Promise<void>,
     logout: () => Promise<void>,
@@ -18,18 +18,20 @@ const AuthContext = React.createContext<{
 
 
 export const AuthProvider = ({children}: {children: ReactNode}) => {
-    const [user, setUser] = useState<User|null>(null)
+    const [user, setUser] = useState<User|null|undefined>(null)
 
     const login = (form: AuthForm) => auth.login(form).then(user => setUser(user))
     const register = (form: AuthForm) => auth.register(form).then(setUser)
     const logout = () => auth.logout().then(user => setUser(null))
     
-    return <AuthContext.Provider value={{user, login, register, logout}} />
+    return <AuthContext.Provider value={{user, login, register, logout}}>
+        {children}
+    </AuthContext.Provider>
 }
 
 export const useAuth = () => {
-    // const context = React.useContext(AuthContext)
-    const context = null
+    const context = React.useContext(AuthContext)
+    // const context = null
     if (!context) {
         throw new Error('useAuth must be used in Auth Provider')
     }
