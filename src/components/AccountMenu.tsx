@@ -5,10 +5,11 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useAuth } from '../context';
 
 function AccountMenu() {
 
-
+    const { login, user, register, logout } = useAuth()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -22,7 +23,7 @@ function AccountMenu() {
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                 <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-                <Typography sx={{ minWidth: 100 }}><Link to='login'> Profile </Link></Typography>
+                <Typography sx={{ minWidth: 100 }}><Link to='login'> { user?user.name:"Profile"} </Link></Typography>
                 <IconButton>
                     <ShoppingCartIcon style={{ color: 'white' }}/>
                 </IconButton>
@@ -93,7 +94,15 @@ function AccountMenu() {
                 </ListItemIcon>
                 Settings
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem  onClick={()=>{
+                    setAnchorEl(null)
+                    if(user !== null){
+                        logout()
+                        console.log("new logout:", user)
+                    } else {
+                        alert("No Sign in yet.")
+                }}}>
+                    
                 <ListItemIcon>
                     <Logout fontSize="small" />
                 </ListItemIcon>
