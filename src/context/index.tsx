@@ -28,7 +28,10 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     
     const [user, setUser] = useState<User|null|undefined>(null)
 
-    const login = (form: AuthForm) => auth.login(form).then(user => setUser(user))
+    const login = (form: AuthForm) => auth.login(form).then(user => {
+        console.log("login param:", user)
+        setUser(user)
+    })
     const register = (form: AuthForm) => auth.register(form).then(setUser)
     const logout = () => auth.logout().then(user => setUser(null))
     

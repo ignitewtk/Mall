@@ -8,7 +8,6 @@ const apiUrl = process.env.REACT_APP_API_URL
 export const LoginView = () => {
     useDocumentTitle("Login", false)
     const { login, user, register, logout } = useAuth()
-
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event?.preventDefault()
         const username = (event.currentTarget.elements[0] as HTMLInputElement).value
@@ -17,9 +16,8 @@ export const LoginView = () => {
     }
     return (
         <>
+            <div> Hello, {user?.name} </div>
             <form onSubmit={handleSubmit}>
-                {user?user?.name: null}
-                {/* token: {user?.token} */}
                 <div>
                     <label htmlFor="username"> Username </label>
                     <input type="text" id={'username'}/>
