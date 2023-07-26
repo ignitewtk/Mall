@@ -1,6 +1,6 @@
 // Not use if using 3rd party provider in real practice
 
-import { AuthForm } from "./context/AuthProvider"
+import { AuthForm } from "./context"
 
 export interface User {
     id: string,

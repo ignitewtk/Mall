@@ -1,6 +1,6 @@
 import React, { FormEvent } from 'react'
 import { useDocumentTitle } from '../../utils'
-import { AuthForm, useAuth } from '../../context/AuthProvider'
+import { AuthForm, useAuth } from '../../context'
 import { handleUserResponse } from '../../auth-provider'
 
 const apiUrl = process.env.REACT_APP_API_URL
@@ -16,18 +16,20 @@ export const LoginView = () => {
         login({username, password})
     }
     return (
-        <form onSubmit={handleSubmit}>
-            {user?user?.name: null}
-            {/* token: {user?.token} */}
-            <div>
-                <label htmlFor="username"> Username </label>
-                <input type="text" id={'username'}/>
-            </div>
-            <div>
-                <label> Password </label>
-                <input type="password" id={'passoword'} />
-            </div>
-            <button type={"submit"}> Sign in </button>
-        </form>
+        <>
+            <form onSubmit={handleSubmit}>
+                {user?user?.name: null}
+                {/* token: {user?.token} */}
+                <div>
+                    <label htmlFor="username"> Username </label>
+                    <input type="text" id={'username'}/>
+                </div>
+                <div>
+                    <label> Password </label>
+                    <input type="password" id={'passoword'} />
+                </div>
+                <button type={"submit"}> Sign in </button>
+            </form>
+        </>
     )
 }
