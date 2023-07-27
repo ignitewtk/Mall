@@ -30,7 +30,7 @@ export const LoginView = () => {
                 <button type={"submit"}> Sign in </button>
             </form>
             <button onClick={() => {
-                fetch(`https://mallts-lnx.azurewebsites.net/login/webapp/page2`).then(async response => {
+                fetch(`https://mallts-lnx.azurewebsites.net/webapp/page2`).then(async response => {
                     if(response.ok) {
                         console.log(await response.json())
                     }
@@ -38,7 +38,7 @@ export const LoginView = () => {
             }}> Test env apiURL </button>
 
             <button onClick={() => {
-                fetch(`${apiUrl}/login/webapp/page2`).then(async response => {
+                fetch(`${apiUrl}/webapp/page2`).then(async response => {
                     if(response.ok) {
                         console.log(await response.json())
                     }
