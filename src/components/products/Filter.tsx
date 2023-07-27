@@ -3,47 +3,81 @@ import Button from '@mui/material/Button'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
-import TextField from '@mui/material/TextField'
 import InputBase from '@mui/material/InputBase'
 import SearchIcon from '@mui/icons-material/Search';
-import { Container } from '@mui/material'
 
-type Props = {}
+import { FilterParam } from '.'
+import { useState } from 'react'
 
-type States = {}
-
-class DropDownCheckbox extends React.Component<Props, States> {
-
-    render() {
-        return (
-            <div className="dropdown-menu">
-                <Button className="dropdown-button"> Menu 1</Button>
-                <FormGroup>
-                    <FormControlLabel className="dropdown-checkbox" control={<Checkbox />} label="Option 1"/>
-                    <FormControlLabel className="dropdown-checkbox" control={<Checkbox />} label="Option 2"/>
-                    <FormControlLabel className="dropdown-checkbox" control={<Checkbox />} label="Option 3"/>
-                </FormGroup>
-            </div>
-        )
-    }
+type Props = {
+    title: string,
+    items: string[]
+    setParams: (params: FilterParam|undefined) => void
 }
-class Filter extends React.Component<Props, States> {
 
-    render() {
-        return (
-            <div id='product-filter'> 
-                <InputBase 
-                
-                    className="filter-input-search" 
-                    placeholder="Search"/>
-                <SearchIcon fontSize="small" sx={{ flex: 1 }}/>
-                
-                <DropDownCheckbox />
-                <DropDownCheckbox />
-                <Button className="dropdown-button" variant="text"> Apply </Button>
-                
-            </div>
-        )
+const DropDownCheckbox = ({title, items, setParams}:Props) => {
+    const [display, setDisplay] = useState("block")
+    const [checkedItems, setCheckedItems] = useState<string[]>([])
+
+    const handleChecked = (e:React.ChangeEvent<HTMLInputElement>) => {
+        var updatedList = [...checkedItems]
+        if (e.target.checked) {
+            updatedList = [...checkedItems, e.target.name]
+
+        } else {
+            updatedList.splice(checkedItems.indexOf(e.target.name), 1)
+            
+        }
+        console.log(updatedList)
+        setCheckedItems(updatedList)
+
     }
+    return (
+        <div className="dropdown-menu">
+            <Button 
+            onClick = {() => {
+                if (display === "block") {
+                    setDisplay("none")
+                } else if (display === "none") {
+                    setDisplay("block")
+                }
+            }}
+                className="dropdown-button"> {title} </Button>
+            <FormGroup style={{display:display}}>
+                {
+                    items.map(
+                        (item) => 
+                        <FormControlLabel 
+                            className="dropdown-checkbox" 
+                            control={<Checkbox onChange={handleChecked} name={item}/>} 
+                            label={item}/>)
+                }
+            </FormGroup>
+        </div>
+    )
+
+}
+
+interface FilterProps {
+    params: FilterParam|undefined
+    setParams: (param: FilterProps['params']) => void
+}
+
+const Filter = ({params, setParams}: FilterProps) => {
+    console.log("Filter params:", params)
+    return (
+        <div id='product-filter'> 
+            <InputBase 
+                sx={{ ml: 1, flex: 1 }}
+                className="filter-input-search" 
+                placeholder="Search"/>
+            <SearchIcon fontSize="small" sx={{ flex: 1 }}/>
+            
+            <DropDownCheckbox setParams={setParams} title={"Category"} items={["Vegetable", "Meat", "Fruit"]}/>
+            <DropDownCheckbox setParams={setParams} title={"Ratings"} items={["1", "2", "3", "4", "5"]}/>
+            <Button className="dropdown-button" variant="text"> Apply </Button>
+            
+        </div>
+    )
 }
 export default Filter

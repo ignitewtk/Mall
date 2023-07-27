@@ -114,8 +114,8 @@ code {
 .product-list-item {
   padding: 5px;
   float: left;
-  max-width: 250px;
-  height: 250px;
+  max-width: 200px;
+  height: 270px;
   margin: 5px;
   padding: 0;
   background-color: rgb(241, 241, 241);

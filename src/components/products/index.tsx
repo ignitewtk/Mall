@@ -1,21 +1,42 @@
 import * as React from 'react'
-import ProductList from '../products/ProductList';
+import {ProductList} from '../products/ProductList';
 import Filter from '../products/Filter';
-import { Routes, Route, Navigate } from 'react-router'
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Product } from './Product';
-import { useDocumentTitle } from '../../utils';
-type Props = {}
 
-type States = {}
+
+export interface FilterParam {
+    checkedCategory: string[],
+    checkedRating: string[],
+    sort: string
+}
+
+export interface ProductInfo {
+    productId: string,
+    productName: string,
+    originPrice: number,
+    discountPrice: number,
+    rating: number,
+    src: string
+}
 
 export const ProductsView = () => {
 
+    const [params, setParams] = React.useState<FilterParam>()
+    const [productList, setProductList] = React.useState<ProductInfo[]>([])
+
+    React.useEffect(() => {
+        fetch(`http://localhost:3001/products?`).then(async response => {
+            if (response.ok) {
+                console.log("update product list")
+                setProductList(await response.json())
+            }
+        })
+    }, [params])
+    
 
     return (
         <>
-            <Filter />
-            <ProductList />
+            <Filter params={params} setParams={setParams} />
+            <ProductList productList={productList} />
         </>
     )
 }
