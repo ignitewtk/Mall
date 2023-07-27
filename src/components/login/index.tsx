@@ -2,6 +2,7 @@ import React, { FormEvent } from 'react'
 import { useDocumentTitle } from '../../utils'
 import { AuthForm, useAuth } from '../../context'
 import { handleUserResponse } from '../../auth-provider'
+import { response } from 'msw'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
@@ -28,6 +29,21 @@ export const LoginView = () => {
                 </div>
                 <button type={"submit"}> Sign in </button>
             </form>
+            <button onClick={() => {
+                fetch(`https://mallts-lnx.azurewebsites.net/login/webapp/page2`).then(async response => {
+                    if(response.ok) {
+                        console.log(await response.json())
+                    }
+                })
+            }}> Test env apiURL </button>
+
+            <button onClick={() => {
+                fetch(`${apiUrl}/login/webapp/page2`).then(async response => {
+                    if(response.ok) {
+                        console.log(await response.json())
+                    }
+                })
+            }}> Test API </button>
         </>
     )
 }
