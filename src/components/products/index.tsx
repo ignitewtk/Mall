@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {ProductList} from '../products/ProductList';
 import Filter from '../products/Filter';
+import { products } from './mock';
 
 
 export interface FilterParam {
@@ -29,7 +30,7 @@ export const ProductsView = () => {
                 console.log("update product list")
                 setProductList(await response.json())
             }
-        })
+        }).catch(() => setProductList(products))
     }, [params])
     
 

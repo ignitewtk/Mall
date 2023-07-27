@@ -20,7 +20,7 @@ class ProductListItem extends React.Component<Props, States> {
                 <img src={this.props.info?this.props.info.src:placeholderImage} width="100%" height="80%"/>
                 <Container>
                     <Link to={this.props.info.productName.toString()}> 
-                        Product name - {this.props.info.productName} 
+                        {this.props.info.productName} 
                     </Link>
                 </Container>
                 <Container> {this.props.info.originPrice} </Container>
