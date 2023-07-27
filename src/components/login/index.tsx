@@ -30,7 +30,7 @@ export const LoginView = () => {
                 <button type={"submit"}> Sign in </button>
             </form>
             <button onClick={() => {
-                fetch(`https://mallts-lnx.azurewebsites.net/webapp/page2`).then(async response => {
+                fetch(`https://backend202307112242.azurewebsites.net/webapp/page2`).then(async response => {
                     if(response.ok) {
                         console.log(await response.json())
                     }
