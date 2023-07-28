@@ -3,6 +3,7 @@ import { useDocumentTitle } from '../../utils'
 import { AuthForm, useAuth } from '../../context'
 import { handleUserResponse } from '../../auth-provider'
 import { response } from 'msw'
+import { http } from '../../utils/http'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
@@ -36,6 +37,14 @@ export const LoginView = () => {
                     }
                 })
             }}> Test env apiURL </button>
+            <button onClick={() => {
+                http(`https://backend202307112242.azurewebsites.net/webapp/page2`, {})
+                fetch(`${apiUrl}/webapp/page2`).then(async response => {
+                    if(response.ok) {
+                        console.log(await response.json())
+                    }
+                })
+            }}> Test API </button>
 
             <button onClick={() => {
                 fetch(`${apiUrl}/webapp/page2`).then(async response => {
