@@ -17,7 +17,12 @@ export const cleanObject = (object: { [key: string]: unknown}) => {
   return result;
 };
 
-
+// reduce the occurrence of inited empty array in useEffect when components mount
+export const useMount = (callback: () => void) => {
+  useEffect(() => {
+    callback()
+  }, [])
+}
 
 // const debounce = (func, delay) => {
 //   let timeout;

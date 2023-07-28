@@ -12,7 +12,7 @@ import { useState } from 'react'
 type Props = {
     title: string,
     items: string[]
-    setParams: (params: FilterParam|undefined) => void
+    setParams: (params: FilterParam) => void
 }
 
 const DropDownCheckbox = ({title, items, setParams}:Props) => {
@@ -59,12 +59,11 @@ const DropDownCheckbox = ({title, items, setParams}:Props) => {
 }
 
 interface FilterProps {
-    params: FilterParam|undefined
+    params: FilterParam
     setParams: (param: FilterProps['params']) => void
 }
 
 const Filter = ({params, setParams}: FilterProps) => {
-    console.log("Filter params:", params)
     return (
         <div id='product-filter'> 
             <InputBase 

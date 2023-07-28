@@ -2,6 +2,8 @@ import * as React from 'react'
 import {ProductList} from '../products/ProductList';
 import Filter from '../products/Filter';
 import { products } from './mock';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import { Product } from './Product';
 
 
 export interface FilterParam {
@@ -19,20 +21,14 @@ export interface ProductInfo {
     src: string
 }
 
-export const ProductsView = () => {
+export interface ProductViewProps {
+    params: FilterParam,
+    setParams: (params: FilterParam) => void
+    productList: ProductInfo[],
+    setProductList: (productList: ProductViewProps) => void
+}
 
-    const [params, setParams] = React.useState<FilterParam>()
-    const [productList, setProductList] = React.useState<ProductInfo[]>([])
-
-    React.useEffect(() => {
-        fetch(`http://localhost:3001/products?`).then(async response => {
-            if (response.ok) {
-                console.log("update product list")
-                setProductList(await response.json())
-            }
-        }).catch(() => setProductList(products))
-    }, [params])
-    
+export const ProductsView = ({params, setParams, productList, setProductList}: ProductViewProps) => {
 
     return (
         <>
