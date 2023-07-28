@@ -38,8 +38,7 @@ export const LoginView = () => {
                 })
             }}> Test env apiURL </button>
             <button onClick={() => {
-                http(`https://backend202307112242.azurewebsites.net/webapp/page2`, {})
-                fetch(`${apiUrl}/webapp/page2`).then(async response => {
+                http(`https://backend202307112242.azurewebsites.net/webapp/page2`, {}).then(async response => {
                     if(response.ok) {
                         console.log(await response.json())
                     }
