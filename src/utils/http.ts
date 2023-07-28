@@ -2,7 +2,7 @@ import qs from "qs"
 import * as auth from '../auth-provider'
 import { useAuth } from "../context"
 
-const apiUrl = process.env.REACT_APP_API_URL
+const apiUrl = 'https://backend202307112242.azurewebsites.net'
 
 interface Config extends RequestInit {
     token?: string,
