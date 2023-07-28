@@ -26,7 +26,7 @@ test('demo method sending async request',async () => {
         (req: RestRequest, res: ResponseComposition, ctx: RestContext) => res(ctx.json(mockResult)))
     )
 
-    const result = await http(endpoint)
+    const result = await http(endpoint, {data: mockResult})
     expect(result).toEqual(mockResult)
 })
 
