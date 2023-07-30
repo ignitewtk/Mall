@@ -69,10 +69,10 @@ const Filter = ({params, setParams}: FilterProps) => {
     return (
         <div id='product-filter'> 
             <InputBase 
-                sx={{ ml: 1, flex: 1 }}
+                sx={{ ml: 1, flex: 1, marginLeft: '0px' }}
                 className="filter-input-search" 
                 placeholder="Search"/>
-            <SearchIcon fontSize="small" sx={{ flex: 1 }}/>
+            <SearchIcon fontSize="medium" sx={{ flex: 1}}/>
             
             <DropDownCheckbox setParams={setParams} title={"Category"} items={["Vegetable", "Meat", "Fruit"]}/>
             <DropDownCheckbox setParams={setParams} title={"Ratings"} items={["1", "2", "3", "4", "5"]}/>

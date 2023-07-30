@@ -23,11 +23,13 @@ function AccountMenu() {
     return (
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Typography sx={{ minWidth: 100 }}><Link style={{textDecoration: 'none'}} to='login'> { user?user.name:"Sign in"} </Link></Typography>
-                <IconButton>
-                    <FavoriteIcon style={{ color: 'pink' }}/>
+                <Typography sx={{ minWidth: 100 }}>
+                    <Link style={{textDecoration: 'none'}} to='login'> { user?user.name:"Sign in"} </Link>
+                </Typography>
+                <IconButton style={{ marginLeft: "16px" }}>
+                    <FavoriteIcon style={{ color: 'pink'}}/>
                 </IconButton>
-                <IconButton>
+                <IconButton style={{ marginLeft: "16px" }}>
                     <ShoppingCartIcon style={{ color: 'grey' }}/>
                 </IconButton>
                 <Tooltip title="Account settings">
@@ -82,7 +84,7 @@ function AccountMenu() {
                 <Avatar /> Profile
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                <Avatar /> <Link to='transaction'> My Account </Link>
+                <Avatar /> <Link to='transaction'> Transaction History </Link>
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={handleClose}>
