@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { Routes, Route, Navigate } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom';
-
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
-
-
+import Divider from '@mui/material/Divider';
 import MainMenu from './MainMenu';
 import AccountMenu from './AccountMenu';
 import { LoginView } from './login';
@@ -19,6 +17,7 @@ import { products } from './products/mock';
 
 
 const Theme = () => {
+
     useDocumentTitle('MALL TS LNX')
 
     const [params, setParams] = React.useState<FilterParam>({
@@ -29,6 +28,7 @@ const Theme = () => {
     
     const [productList, setProductList] = React.useState<ProductInfo[]>([])
     
+    // Initialize product list when first lauch the page
     React.useEffect(() => {
         fetch(`http://localhost:3001/products?`).then(async response => {
             if (response.ok) {
@@ -36,15 +36,16 @@ const Theme = () => {
             }
         }).catch(() => setProductList(products))
     }, [params])
-
+    
 
     return (
+        <>
         <Router>
             <Box id='theme-header'> 
-                <span> 202307171508 </span>
-                <span> Header </span>
+                <span style={{ fontSize: "30px", fontFamily:"Lucida Handwriting", color:"black"}}> RochaSt Online </span>
                 <AccountMenu />
             </Box>
+            <Divider />
             <Box id='theme-menu'> <MainMenu message={"mock message"}/> </Box>
             <Container id='theme-body'>
                 <Routes>
@@ -58,11 +59,10 @@ const Theme = () => {
                     <Route path={'/login'} element={<LoginView />}/>
                     <Route path={'/transaction'} element={<TransactionView />}/>
                 </Routes>
-                
-            </Container>
-
-            <Box id='theme-footer'> Footer </Box>
+            </Container>  
         </Router>
+        <Box id='theme-footer'> Footer </Box>
+        </>
     )
 }
 

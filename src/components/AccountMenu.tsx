@@ -5,6 +5,7 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useAuth } from '../context';
 
 function AccountMenu() {
@@ -22,10 +23,12 @@ function AccountMenu() {
     return (
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Typography sx={{ minWidth: 100 }}>Contact</Typography>
                 <Typography sx={{ minWidth: 100 }}><Link to='login'> { user?user.name:"Profile"} </Link></Typography>
                 <IconButton>
-                    <ShoppingCartIcon style={{ color: 'white' }}/>
+                    <FavoriteIcon style={{ color: 'pink' }}/>
+                </IconButton>
+                <IconButton>
+                    <ShoppingCartIcon style={{ color: 'grey' }}/>
                 </IconButton>
                 <Tooltip title="Account settings">
                 <IconButton
