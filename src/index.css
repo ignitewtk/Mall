@@ -109,6 +109,7 @@ a:visited {
   display: none;
   width: stretch;
   background-color: white;
+  color: #3e4042;
 }
 .dropdown-checkbox:hover {
   margin: 0 0 0 0;
