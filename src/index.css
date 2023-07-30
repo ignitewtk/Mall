@@ -131,9 +131,10 @@ a:visited {
 .product-list-item {
   padding: 5px;
   float: left;
-  max-width: 200px;
+  max-width: 205px;
   min-height: 280px;
   margin: 5px;
   padding: 0;
   background-color: white;
+  position: relative;
 }

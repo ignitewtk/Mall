@@ -24,6 +24,21 @@ class ProductListItem extends React.Component<Props, States> {
                     </Link>
                 </Container>
                 <Container style={{color:"#333", letterSpacing: "normal"}}> $ {this.props.info.originPrice} </Container>
+                {
+                    Math.floor(Math.random() * 2) === 1? 
+                    (<span style={{
+                        position: 'absolute',
+                        top: "0px",
+                        left: '0px',
+                        color:"white", 
+                        margin: "0px 0 0 24px",
+                        padding: "0 5px",
+                        borderRadius: "25px",
+                        backgroundColor: 'red',
+                        border: "1px solid red"}}> Sale  </span>):<span></span>
+                }
+                
+                
             </div>
         )
     }
