@@ -23,7 +23,7 @@ function AccountMenu() {
     return (
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Typography sx={{ minWidth: 100 }}><Link to='login'> { user?user.name:"Profile"} </Link></Typography>
+                <Typography sx={{ minWidth: 100 }}><Link style={{textDecoration: 'none'}} to='login'> { user?user.name:"Sign in"} </Link></Typography>
                 <IconButton>
                     <FavoriteIcon style={{ color: 'pink' }}/>
                 </IconButton>

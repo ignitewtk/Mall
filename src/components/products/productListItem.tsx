@@ -19,11 +19,11 @@ class ProductListItem extends React.Component<Props, States> {
             <div className='product-list-item'>
                 <img src={this.props.info?this.props.info.src:placeholderImage} width="100%" height="80%"/>
                 <Container>
-                    <Link to={this.props.info.productName.toString()}> 
+                    <Link style={{textDecoration: 'none'}} to={this.props.info.productName.toString()}> 
                         {this.props.info.productName} 
                     </Link>
                 </Container>
-                <Container> {this.props.info.originPrice} </Container>
+                <Container style={{color:"#333", letterSpacing: "normal"}}> $ {this.props.info.originPrice} </Container>
             </div>
         )
     }
