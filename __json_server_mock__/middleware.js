@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
       return res.status(200).json({
         user: {
           name: "jack",
-          token: "123",
+          token: "123456",
         },
       });
     } else {

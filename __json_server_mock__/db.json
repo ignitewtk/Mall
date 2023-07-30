@@ -1,4 +1,10 @@
 {
+    "me": {
+        "id": "1",
+        "name": "jack",
+        "email": "jack@gmail.com",
+        "token": "123456"
+    },
     "products": [
         {
             "productId": "1",
