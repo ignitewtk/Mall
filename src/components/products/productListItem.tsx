@@ -25,7 +25,7 @@ class ProductListItem extends React.Component<Props, States> {
                 </Container>
                 <Container style={{color:"#333", letterSpacing: "normal"}}> $ {this.props.info.originPrice} </Container>
                 {
-                    Math.floor(Math.random() * 2) === 1? 
+                    Math.floor(Math.random() * 3) === 1? 
                     (<span style={{
                         position: 'absolute',
                         top: "0px",
