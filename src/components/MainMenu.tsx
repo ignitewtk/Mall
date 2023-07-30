@@ -2,7 +2,6 @@ import { Button, Menu, MenuItem } from '@mui/material';
 import * as React from 'react'
 import Fade from '@mui/material/Fade';
 
-
 function MainMenu({ message }: {message: string}) {
     const [anchorEl, setAnchorEl] = React.useState<null|HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -19,7 +18,7 @@ function MainMenu({ message }: {message: string}) {
     
 
 
-    const btnArr = ['Category 1', 'Category 2', 'Category 3', 'Category 4']
+    const btnArr = ['Category', 'Brand']
     const menuItems = ['Menu Item 1', 'Menu Item 2', 'Menu Item 3']
     return (
         <div id='main-menu'> 
@@ -27,18 +26,24 @@ function MainMenu({ message }: {message: string}) {
             btnArr.map((category) => 
                 <div 
                     style={{display:'inline'}}
-                    key={category}
-                    >
+                    key={category}>
                     <Button 
                         onClick={handleOpen}
                         className='menu-button'> 
                         {category} 
                     </Button>
                     <Menu 
+                        sx={{
+                            '& .MuiPaper-root': {
+                              boxShadow: 'none', // Set box-shadow to none for the Paper component
+                            },
+                          }}
                         anchorEl={anchorEl}
                         open={open}
                         onClose={handleClose}
+                        
                         TransitionComponent={Fade}>
+                            
                         {
                             menuItems.map((menuItem) =>
                             <MenuItem 
