@@ -12,13 +12,21 @@ code {
     monospace;
 }
 
+/* Remove color of a visited or unvisited text where link ref applys */
+a {
+  color: initial; /* or 'initial' or any other color value you want to apply */
+}
+a:visited {
+  color: inherit; /* or 'initial' or any other color value you want to apply */
+}
+
 #theme-header {
   background-color: white;
   width: 100vw;
   color: black;
   text-align: center;
   padding: 10px 0;
-  margin: 0 0 30px 0;
+  margin: 20px 0 30px 0;
 }
 
 #account-menu {
@@ -41,24 +49,28 @@ code {
 }
 
 #theme-body {
-  background-color: whitesmoke;
+  background-color: white;
   height: 90vh;
   /* height: fit-content; */
   width: 100vw;
+  max-width: 1300px;
   padding: 11px;
 }
 
 #theme-footer {
-  background-color: black;
+  background-color: #f9f5f3;
   /* height: 10vh; */
-  height: 200px;
   width: 100vw;
-  color: white;
+  color: black;
   text-align: center;
+  font-weight: 5;
+  font-size: small;
+  margin: 10px 0 0 0;
+  padding: 0 0 20px 0;
 }
 
 #product-filter {
-  background-color: whitesmoke;
+  background-color: white;
   width: 28%;
   height: 100%;
   float: left;
@@ -78,7 +90,7 @@ code {
 .dropdown-menu {
   margin: 10px 0 0 0;
   width: 100%;
-  background-color: whitesmoke;
+  background-color: white;
   border-style: solid;
   border-width: 0.5px;
   border-color: rgb(241, 241, 241);
@@ -90,22 +102,22 @@ code {
   background-color: white;
 }
 .dropdown-button:hover {
-  background-color: rgb(210, 209, 209);
+  background-color: white;
 }
 .dropdown-checkbox {
   padding: 0 0 0 30px;
   display: none;
   width: stretch;
-  background-color: whitesmoke;
+  background-color: white;
 }
 .dropdown-checkbox:hover {
   margin: 0 0 0 0;
   padding: 1px 20px;
-  background-color: rgb(210, 209, 209);
+  background-color: rgb(238, 238, 238);
 }
 
 #product-list {
-  background-color: aliceblue;
+  background-color: white;
   width: 72%;
   height: 100%;
   overflow: scroll;
@@ -119,8 +131,8 @@ code {
   padding: 5px;
   float: left;
   max-width: 200px;
-  height: 270px;
+  min-height: 280px;
   margin: 5px;
   padding: 0;
-  background-color: rgb(241, 241, 241);
+  background-color: white;
 }

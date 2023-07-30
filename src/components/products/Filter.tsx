@@ -48,6 +48,7 @@ const DropDownCheckbox = ({title, items, setParams}:Props) => {
                     items.map(
                         (item) => 
                         <FormControlLabel 
+                            sx={{marginLeft:"0"}}
                             className="dropdown-checkbox" 
                             key={item}
                             control={<Checkbox onChange={handleChecked} name={item}/>} 

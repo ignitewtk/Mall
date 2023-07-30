@@ -2,7 +2,7 @@ import React from 'react'
 import placeholderImage from './placeholder-image.png';
 import Container from '@mui/material/Container';
 
-type ProductProps = {
+export type ProductProps = {
     productId: string,
     productName: string,
     productPrice: number
