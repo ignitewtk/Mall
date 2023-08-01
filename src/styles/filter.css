@@ -1,9 +1,18 @@
-#product-filter {
-  background-color: white;
-  width: 20%;
-  height: 100%;
-  float: left;
-  margin: 0 5px 0 0;
+@media (max-width: 648px) {
+  #product-filter {
+    width: 100%;
+    z-index: 10;
+  }
+}
+@media (min-width: 648px) {
+  #product-filter {
+    background-color: white;
+    width: 20%;
+    min-width: 200px;
+    height: 100%;
+    float: left;
+    margin: 0 5px 0 0;
+  }
 }
 
 .filter-input-search {
