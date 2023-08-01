@@ -9,6 +9,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { FilterParam } from '.'
 import { useState } from 'react'
 
+import '../../styles/filter.css';
+
 type Props = {
     title: string,
     items: string[]

@@ -5,6 +5,7 @@ import { products } from './mock';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { Product } from './Product';
 
+import '../../styles/products.css';
 
 export interface FilterParam {
     checkedCategory: string[],

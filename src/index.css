@@ -34,20 +34,6 @@ a:visited {
   float: right;
 }
 
-#main-menu {
-  color: rgb(81, 80, 80);
-  background-color: rgb(255, 255, 255);
-  width: 100vw;
-  height: 50px;
-  text-align: center;
-}
-
-.menu-button {
-  margin: 0 30px;
-  width: 120px;
-  height: 100%;
-}
-
 #theme-body {
   background-color: white;
   height: 90vh;
@@ -67,78 +53,4 @@ a:visited {
   font-size: small;
   margin: 10px 0 0 0;
   padding: 0 0 20px 0;
-}
-
-#product-filter {
-  background-color: white;
-  width: 20%;
-  height: 100%;
-  float: left;
-  margin: 0 5px 0 0;
-}
-
-.filter-input-search {
-  margin: 0 5px 0 0;
-  padding: 0 0 0 10px;
-  width: 80%;
-  height: 40px;
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: rgb(229, 229, 229);
-  background-color: rgb(244, 244, 244);
-}
-
-.dropdown-menu {
-  margin: 10px 0 0 0;
-  width: 100%;
-  background-color: white;
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: rgb(241, 241, 241);
-}
-
-.dropdown-button {
-  width: 100%;
-  padding: 10px 10px;
-  background-color: white;
-}
-.dropdown-button:hover {
-  background-color: white;
-}
-.dropdown-checkbox {
-  padding: 0 0 0 30px;
-  display: none;
-  width: stretch;
-  background-color: white;
-  color: #3e4042;
-}
-.dropdown-checkbox:hover {
-  margin: 0 0 0 0;
-  padding: 1px 20px;
-  background-color: rgb(238, 238, 238);
-}
-
-#product-list {
-  background-color: white;
-  width: 72%;
-  height: 100%;
-  overflow: scroll;
-  float: left;
-}
-#product-list::-webkit-scrollbar {
-  width: 0.5em;
-}
-
-.product-list-item {
-  padding: 0px;
-  float: left;
-  max-width: 205px;
-  min-height: 280px;
-  margin: 0 0 0 5px;
-  background-color: white;
-  position: relative;
-}
-
-.product-list-item:hover {
-  background-color: #f7f7f7;
 }
