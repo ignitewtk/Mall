@@ -78,7 +78,7 @@ const Filter = ({params, setParams}: FilterProps) => {
             
             <DropDownCheckbox setParams={setParams} title={"Category"} items={["Vegetable", "Meat", "Fruit"]}/>
             <DropDownCheckbox setParams={setParams} title={"Ratings"} items={["1", "2", "3", "4", "5"]}/>
-            <Button className="dropdown-button" variant="text"> Apply </Button>
+            <Button className="dropdown-button" style={{backgroundColor: 'white'}} variant="text"> Apply </Button>
             
         </div>
     )
