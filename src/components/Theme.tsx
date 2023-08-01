@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Routes, Route, Navigate } from 'react-router'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Divider from '@mui/material/Divider';
@@ -43,7 +43,9 @@ const Theme = () => {
         <>
         <Router>
             <Box id='theme-header'> 
-                <span style={{ fontSize: "30px", fontFamily:"Lucida Handwriting", color:"black"}}> RochaSt Online </span>
+                <Link to='/' style={{textDecoration: 'none'}}>
+                    <span style={{ fontSize: "30px", fontFamily:"Lucida Handwriting", color:"black"}}> RochaSt Online </span>
+                </Link>
                 <AccountMenu />
             </Box>
             <Divider />

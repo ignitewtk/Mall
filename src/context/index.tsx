@@ -53,7 +53,6 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     // Init user info and keep login
     useMount(() => {
         bootstrapUser().then(user => {
-            console.log(user)
             setUser(user)
         })
     })

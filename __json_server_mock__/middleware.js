@@ -8,10 +8,10 @@ module.exports = (req, res, next) => {
   if (req.method === "POST" && req.path === "/login") {
     console.log("capture login request ...");
     console.log("req.body:", req.body);
-    if (req.body.username === "jack" && req.body.password === "123456") {
+    if (req.body.username === "Jack" && req.body.password === "123456") {
       return res.status(200).json({
         user: {
-          name: "jack",
+          name: "Jack",
           token: "123456",
         },
       });
