@@ -23,9 +23,7 @@ function AccountMenu() {
     return (
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Typography sx={{ minWidth: 100 }}>
-                    <Link style={{textDecoration: 'none'}} to='login'> { user?user.name:"Sign in"} </Link>
-                </Typography>
+                
                 <IconButton style={{ marginLeft: "16px" }}>
                     <FavoriteIcon style={{ color: 'pink'}}/>
                 </IconButton>
@@ -41,9 +39,12 @@ function AccountMenu() {
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
                 >
-                    <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                    <Avatar sx={{ width: 32, height: 32 }}> {user?user.name.charAt(0):'?'} </Avatar>
                 </IconButton>
                 </Tooltip>
+                <Typography sx={{ minWidth: 100 }}>
+                    <Link style={{textDecoration: 'none'}} to='login'> { user?user.name:"Sign in"} </Link>
+                </Typography>
             </Box>
             <Menu
                 anchorEl={anchorEl}
