@@ -13,11 +13,12 @@ import '../../styles/filter.css';
 
 type Props = {
     title: string,
-    items: string[]
+    items: string[],
+    params: FilterParam,
     setParams: (params: FilterParam) => void
 }
 
-const DropDownCheckbox = ({title, items, setParams}:Props) => {
+const DropDownCheckbox = ({title, items, params, setParams}:Props) => {
     const [display, setDisplay] = useState("block")
     const [checkedItems, setCheckedItems] = useState<string[]>([])
 
@@ -25,13 +26,22 @@ const DropDownCheckbox = ({title, items, setParams}:Props) => {
         var updatedList = [...checkedItems]
         if (e.target.checked) {
             updatedList = [...checkedItems, e.target.name]
-
         } else {
             updatedList.splice(checkedItems.indexOf(e.target.name), 1)
-            
         }
-        console.log(updatedList)
+        console.log(title, updatedList)
         setCheckedItems(updatedList)
+        if (title === 'Categories') {
+            setParams({
+                ...params,
+                categories: updatedList
+            })
+        } else if (title === 'Ratings') {
+            setParams({
+                ...params,
+                ratings: updatedList
+            })
+        }
 
     }
     return (
@@ -76,8 +86,8 @@ const Filter = ({params, setParams}: FilterProps) => {
                 placeholder="Search"/>
             <SearchIcon fontSize="medium" sx={{ flex: 1}}/>
             
-            <DropDownCheckbox setParams={setParams} title={"Category"} items={["Vegetable", "Meat", "Fruit"]}/>
-            <DropDownCheckbox setParams={setParams} title={"Ratings"} items={["1", "2", "3", "4", "5"]}/>
+            <DropDownCheckbox params={params} setParams={setParams} title={"Categories"} items={["Vegetable", "Meat", "Fruit"]}/>
+            <DropDownCheckbox params={params} setParams={setParams} title={"Ratings"} items={["1", "2", "3", "4", "5"]}/>
             <Button className="dropdown-button" style={{backgroundColor: 'white'}} variant="text"> Apply </Button>
             
         </div>

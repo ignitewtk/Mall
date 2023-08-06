@@ -8,8 +8,8 @@ import { Product } from './Product';
 import '../../styles/products.css';
 
 export interface FilterParam {
-    checkedCategory: string[],
-    checkedRating: string[],
+    categories: string[],
+    ratings: string[],
     sort: string
 }
 

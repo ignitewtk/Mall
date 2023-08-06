@@ -22,8 +22,8 @@ const Theme = () => {
     useDocumentTitle('MALL TS LNX')
 
     const [params, setParams] = React.useState<FilterParam>({
-        checkedCategory: ['All'],
-        checkedRating: ['All'],
+        categories: [],
+        ratings: [],
         sort: 'Price+'
     })
     
@@ -37,8 +37,6 @@ const Theme = () => {
             }
         }).catch(() => setProductList(products))
     }, [params])
-    
-
     return (
         <>
         <Router>
@@ -83,7 +81,7 @@ const Theme = () => {
                 <div> INDIAN </div>
             </Grid>
             <Grid item xs={3}>
-                <h4> REVELANT </h4>
+                <h4> RELEVANT </h4>
                 <div> ALL ITEMs </div>
                 <div> RANKING </div>
                 <div> FEATURES </div>

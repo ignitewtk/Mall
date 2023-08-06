@@ -14,6 +14,7 @@ type States = {}
 
 
 class ProductListItem extends React.Component<Props, States> {
+    
     render() {
         return (
             <div className='product-list-item'>

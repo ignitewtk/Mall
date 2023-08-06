@@ -8,8 +8,7 @@ interface ProductListProps {
     productList: ProductInfo[]
 }
 
-export const ProductList = ({productList}: ProductListProps) => {
-
+export const ProductList = React.memo(({productList}: ProductListProps) => {
     return (
         <Container id='product-list'> 
         
@@ -20,6 +19,4 @@ export const ProductList = ({productList}: ProductListProps) => {
         </Container>
         
     )
-    // )
-}
-
+})

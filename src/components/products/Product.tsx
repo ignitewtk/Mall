@@ -9,7 +9,6 @@ export type ProductProps = {
 }
 
 export const Product = (props: ProductProps) => {
-
     return (
         <Container>
             <img src={placeholderImage} width="500px" height="500px"/>
