@@ -6,7 +6,10 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import Drawer from '@mui/material/Drawer';
 import { useAuth } from '../context';
+import { useState } from 'react';
+import CartView from './cart';
 
 function AccountMenu() {
 
@@ -20,6 +23,15 @@ function AccountMenu() {
         setAnchorEl(null);
     }
 
+    const [cartShow, setCartShow] = useState(false)
+    const handleClickCart = () => {
+        if (cartShow === false) {
+            setCartShow(true)
+        } else {
+            setCartShow(false)
+        }
+    }
+
     return (
         <div id='account-menu'>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -27,7 +39,9 @@ function AccountMenu() {
                 <IconButton style={{ marginLeft: "16px" }}>
                     <FavoriteIcon style={{ color: 'pink'}}/>
                 </IconButton>
-                <IconButton style={{ marginLeft: "16px" }}>
+                <IconButton 
+                    style={{ marginLeft: "16px" }} 
+                    onClick={handleClickCart}>
                     <ShoppingCartIcon style={{ color: 'grey' }}/>
                 </IconButton>
                 <Tooltip title="Account settings">
@@ -43,7 +57,7 @@ function AccountMenu() {
                 </IconButton>
                 </Tooltip>
                 <Typography sx={{ minWidth: 100 }}>
-                    <Link style={{textDecoration: 'none'}} to='login'> { user?user.name:"Sign in"} </Link>
+                    <Link style={{color:"#333", letterSpacing:"0.08em", fontWeight:"500", fontFamily:"sans-serif", textDecoration: 'none'}} to='login'> { user?user.name:"LOGIN"} </Link>
                 </Typography>
             </Box>
             <Menu
@@ -115,6 +129,14 @@ function AccountMenu() {
                 Logout
                 </MenuItem>
             </Menu>
+            <Drawer
+                anchor='right'
+                open={cartShow}
+                onClose={handleClickCart}
+            >
+                <CartView />
+            </Drawer>
+            
         </div>
     )
     
