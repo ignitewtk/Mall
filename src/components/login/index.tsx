@@ -4,7 +4,6 @@ import { useDocumentTitle } from '../../utils'
 import { AuthForm, useAuth } from '../../context'
 import { handleUserResponse } from '../../auth-provider'
 import { response } from 'msw'
-import { http } from '../../utils/http'
 import { Container, Button, TextField } from '@mui/material'
 
 const apiUrl = process.env.REACT_APP_API_URL
@@ -24,8 +23,10 @@ export const LoginView = () => {
     }
     return (
         <>
-<Container style={{display: 'flex', justifyContent: 'center'}}>
+        <Container style={{display: 'flex', justifyContent: 'center'}}>
+            
             <form onSubmit={handleSubmit}>
+            <div style={{ color:"lightgrey", margin:"30px 0", fontSize:"22px", fontWeight: '600'}}> Welcome, my friend </div>
                 <div>
                     <TextField id="standard-basic" label="Username" variant="standard" />
                 </div>
@@ -33,32 +34,14 @@ export const LoginView = () => {
                     <TextField id="standard-basic" label="Password" variant="standard" type="password" />
                 </div>
                 <Button style={{margin: '15px 0', width: '100%'}} type={"submit"} variant="text"> Sign in </Button>
-                    
+                
             </form>
             
+            
         </Container>
-        <button onClick={() => {
-                fetch(`https://backend202307112242.azurewebsites.net/webapp/page2`).then(async response => {
-                    if(response.ok) {
-                        console.log(await response.json())
-                    }
-                })
-            }}> Test env apiURL </button>
-            <button onClick={() => {
-                http(`webapp/page2`, {}).then(async response => {
-                    if(response.ok) {
-                        console.log(await response.json())
-                    }
-                })
-            }}> Test API </button>
-
-            <button onClick={() => {
-                fetch(`${apiUrl}/webapp/page2`).then(async response => {
-                    if(response.ok) {
-                        console.log(await response.json())
-                    }
-                })
-            }}> Test API </button>
+        <Container style={{display: 'flex', justifyContent: 'center'}}>
+        <a style={{margin:"0 20px 0 0", color:'#1976d2'}}> <Link to='/register'> Register </Link></a> <a style={{margin:"0 20px 0 0", color:'#1976d2'}}> <Link to='/forgetPw'> Forget passowrd </Link> </a>
+        </Container>
         </>
         
     )
