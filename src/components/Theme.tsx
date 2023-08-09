@@ -15,6 +15,7 @@ import { Test } from './Test';
 import { ProductList } from './products/ProductList';
 import { products } from './products/mock';
 import { Grid } from '@mui/material';
+import { RegisterView } from './register';
 
 
 const Theme = () => {
@@ -58,44 +59,48 @@ const Theme = () => {
                     <Route path={'/test'} element={<Test />} />
 
                     <Route path={'/login'} element={<LoginView />}/>
+                    <Route path={'/register'} element={<RegisterView />}/>
+                    <Route path={'/forgetPw'} element={<div>Forget Password </div>}/>
+                    
                     <Route path={'/transaction'} element={<TransactionView />}/>
                 </Routes>
             </Container>  
+            <Grid id='theme-footer' container spacing={2}>
+                <Grid item xs={3}>
+                    <h2> RochaSt </h2>
+                    <div> OFFICIAL SITE </div>
+                    <div> COMPANY </div>
+                </Grid>
+                <Grid item xs={3}>
+                    <h4> CATEGORY </h4>
+                    <div> MEAT & SEAFOOD </div>
+                    <div> VEGETABLES </div>
+                    <div> MILK & DAIRY </div>
+                    <h4> BRAND </h4>
+                    <div> FRESH AUSTRALIAN </div>
+                    <div> ASIAN </div>
+                    <div> EUROPEAN </div>
+                    <div> INDIAN </div>
+                </Grid>
+                <Grid item xs={3}>
+                    <h4> RELEVANT </h4>
+                    <div> ALL ITEMs </div>
+                    <div> RANKING </div>
+                    <div> FEATURES </div>
+                    <div> NEWS </div>
+                    <div> ON SALE </div>
+                </Grid>
+                <Grid item xs={3}>
+                    <h4> ABOUT US </h4>
+                    <div> <Link to='/test'> PRIVACY POLICY </Link> </div>
+                    <div> CUSTOMER CENTER </div>
+                    <div> GUIDE </div>
+                    <div> CAREER </div>
+                </Grid>
+            </Grid>
         </Router>
 
-        <Grid id='theme-footer' container spacing={2}>
-            <Grid item xs={3}>
-                <h2> RochaSt </h2>
-                <div> OFFICIAL SITE </div>
-                <div> COMPANY </div>
-            </Grid>
-            <Grid item xs={3}>
-                <h4> CATEGORY </h4>
-                <div> MEAT & SEAFOOD </div>
-                <div> VEGETABLES </div>
-                <div> MILK & DAIRY </div>
-                <h4> BRAND </h4>
-                <div> FRESH AUSTRALIAN </div>
-                <div> ASIAN </div>
-                <div> EUROPEAN </div>
-                <div> INDIAN </div>
-            </Grid>
-            <Grid item xs={3}>
-                <h4> RELEVANT </h4>
-                <div> ALL ITEMs </div>
-                <div> RANKING </div>
-                <div> FEATURES </div>
-                <div> NEWS </div>
-                <div> ON SALE </div>
-            </Grid>
-            <Grid item xs={3}>
-                <h4> ABOUT US </h4>
-                <div> PRIVACY POLICY </div>
-                <div> CUSTOMER CENTER </div>
-                <div> GUIDE </div>
-                <div> CAREER </div>
-            </Grid>
-        </Grid>
+        
         </>
     )
 }
