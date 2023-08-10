@@ -23,13 +23,10 @@ function MainMenu({ message }: {message: string}) {
             'category': 'none',
             'feature': 'none'
         }
-        if(menuState[e.currentTarget.value] === 'none') {
-            newState[e.currentTarget.value] = 'block'
-            setMenuState(newState)
-        }
-        
+        menuState[e.currentTarget.value] === 'none'?newState[e.currentTarget.value] = 'block':newState[e.currentTarget.value] = 'none'
+        setMenuState(newState)
     }
-
+    
     const handleHide = () => {
         setMenuState({
             'category': 'none',
@@ -37,63 +34,14 @@ function MainMenu({ message }: {message: string}) {
         })
     }
 
-
-    // const [anchorEl, setAnchorEl] = useState<null|HTMLElement>(null)
-    // const open = Boolean(anchorEl)
-
-
-    // const handleOpen = (event:React.MouseEvent<HTMLElement>) => {
-    //     setAnchorEl(event.currentTarget)
-    // }
-    
-
-    // const handleClose = (event:React.MouseEvent<HTMLElement>) => {
-    //         setAnchorEl(null)
-    // }
-    // const btnArr = ['Category', 'Brand']
-    // const menuItems = ['Menu Item 1', 'Menu Item 2', 'Menu Item 3']
-
     return (
         <div id='main-menu'> 
-        {/* {
-            btnArr.map((category) => 
-                <div 
-                    style={{display:'inline'}}
-                    key={category}>
-                    <Button 
-                        onClick={handleOpen}
-                        className='menu-button'> 
-                        {category} 
-                    </Button>
-                    <Menu 
-                        sx={{
-                            '& .MuiPaper-root': {
-                              boxShadow: 'none', // Set box-shadow to none for the Paper component
-                            },
-                          }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        
-                        TransitionComponent={Fade}>
-                            
-                        {
-                            menuItems.map((menuItem) =>
-                            <MenuItem 
-                                key={menuItem}
-                                onClick={handleClose}
-                            >{menuItem} </MenuItem> )
-                        }
-                    </Menu>
-                </div>
-                
-                 )
-        } */}
             <div className='menu-btn-container'>
                 <Button 
                     className='menu-button'
                     value='category'
-                    onMouseOver={handleShow}> 
+                    onClick={handleShow}
+                    onMouseOver={handleShow}>
                     Category
                 </Button>
                 
@@ -102,6 +50,7 @@ function MainMenu({ message }: {message: string}) {
                 <Button 
                     value='feature'
                     className='menu-button'
+                    onClick={handleShow}
                     onMouseOver={handleShow}> 
                     FEATURES
                 </Button>
