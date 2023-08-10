@@ -1,3 +1,8 @@
+/**
+ * TODO: add redux state management
+ */
+
+
 import * as React from 'react'
 import Button from '@mui/material/Button'
 import FormGroup from '@mui/material/FormGroup'
@@ -80,15 +85,16 @@ interface FilterProps {
 const Filter = ({params, setParams}: FilterProps) => {
     return (
         <div id='product-filter'> 
+            <button className="submit-button"> APPLY </button>
+            
             <InputBase 
                 sx={{ ml: 1, flex: 1, marginLeft: '0px' }}
                 className="filter-input-search" 
                 placeholder="Search"/>
-            <SearchIcon fontSize="medium" sx={{ flex: 1}}/>
+            {/* <SearchIcon fontSize="medium" sx={{ flex: 1}}/> */}
             
             <DropDownCheckbox params={params} setParams={setParams} title={"Categories"} items={["Vegetable", "Meat", "Fruit"]}/>
             <DropDownCheckbox params={params} setParams={setParams} title={"Ratings"} items={["1", "2", "3", "4", "5"]}/>
-            <Button className="dropdown-button" style={{backgroundColor: 'white'}} variant="text"> Apply </Button>
             
         </div>
     )
