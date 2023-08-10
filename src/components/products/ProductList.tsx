@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { Container } from '@mui/material';
 import ProductListItem from './productListItem';
 import { ProductInfo } from '.';

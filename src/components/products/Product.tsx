@@ -1,8 +1,10 @@
 import React from 'react'
-import placeholderImage from './placeholder-image.png';
+
 import Container from '@mui/material/Container';
-import { useAppSelector } from '../../hooks'
 import { Box } from '@mui/material';
+
+import { useAppSelector } from '../../hooks'
+import placeholderImage from './placeholder-image.png';
 
 
 export const Product = () => {

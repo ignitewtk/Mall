@@ -1,9 +1,9 @@
 /**
  * TODO: add redux state management
  */
-
-
 import * as React from 'react'
+import { useState } from 'react'
+
 import Button from '@mui/material/Button'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
@@ -12,7 +12,6 @@ import InputBase from '@mui/material/InputBase'
 import SearchIcon from '@mui/icons-material/Search';
 
 import { FilterParam } from '.'
-import { useState } from 'react'
 
 import '../../styles/filter.css';
 
