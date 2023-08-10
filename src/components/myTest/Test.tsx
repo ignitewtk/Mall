@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { TestContext } from '../context'
-import { http } from '../utils/http'
+import { TestContext } from '../../context'
+import { http } from '../../utils/http'
+import { test1Slice, func } from './testSlice'
+import { useAppSelector, useAppDispatch } from '../../hooks'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
@@ -13,7 +15,9 @@ const TestIn = () => {
 
 export const Test = () => {
     const [message, setMessage] = useState('default')
-    
+    const [stateMessage, setStateMessage] = useState({message: 'default', obj: {}})
+    const stateTest = useAppSelector(state => state.test1.message)
+    const dispatch = useAppDispatch()
     return (
         <>
         <TestContext.Provider value={message}>
@@ -53,6 +57,10 @@ export const Test = () => {
                     }
                 })
             }}> Test HTTP </button>
+            <div>
+                <div> {stateTest} </div>
+                <button onClick={() => dispatch(func())}> set state </button>
+            </div>
         </>
     )
 }
