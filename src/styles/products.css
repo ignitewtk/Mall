@@ -9,14 +9,26 @@
   width: 0.5em;
 }
 
-.product-list-item {
-  padding: 0px;
-  float: left;
-  max-width: 205px;
-  min-height: 280px;
-  margin: 0 0 0 5px;
-  background-color: white;
-  position: relative;
+@media (max-width: 648px) {
+  .product-list-item {
+    padding: 0px;
+    float: left;
+    max-width: 100%;
+    min-height: 280px;
+    background-color: white;
+    position: relative;
+  }
+}
+@media (min-width: 648px) {
+  .product-list-item {
+    padding: 0px;
+    float: left;
+    max-width: 205px;
+    min-height: 280px;
+    margin: 0 0 0 5px;
+    background-color: white;
+    position: relative;
+  }
 }
 
 .product-list-item:hover {
