@@ -1,4 +1,6 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store'
 import logo from './logo.svg';
 import './App.css';
 import Theme from './components/Theme';
@@ -9,9 +11,12 @@ type Props = {
 
 function App() {
   return (
-    <div className="App">
-      <Theme />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Theme />
+      </div>
+    </Provider>
+    
   );
 }
 
