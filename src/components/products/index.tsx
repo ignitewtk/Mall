@@ -1,9 +1,6 @@
 import * as React from 'react'
 import {ProductList} from '../products/ProductList';
 import Filter from '../products/Filter';
-import { products } from './mock';
-import { Outlet, Route, Routes } from 'react-router-dom';
-import { Product } from './Product';
 
 import '../../styles/products.css';
 

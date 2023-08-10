@@ -1,44 +1,53 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-
-import placeholderImage from './placeholder-image.png';
 import { Container } from '@mui/material';
+
+import { useAppDispatch } from '../../hooks'
+import { setCurrentProduct } from './productSlice'
 import { ProductInfo } from '.';
+import placeholderImage from './placeholder-image.png';
 
-
-type Props = {
+interface Props {
     info: ProductInfo
 }
 
-type States = {}
-
-
-class ProductListItem extends React.Component<Props, States> {
+const ProductListItem = ({info}: Props) => {
     
-    render() {
-        return (
-            <div className='product-list-item'>
-                    <Link style={{textDecoration: 'none'}} to={this.props.info.productName.toString()}> 
-                        {
-                            Math.floor(Math.random() * 3) === 1? 
-                            (<span style={{
-                                position: 'absolute',
-                                top: "0px",
-                                left: '0px',
-                                color:"white", 
-                                margin: "0px 0 0 24px",
-                                padding: "0 5px",
-                                borderRadius: "25px",
-                                backgroundColor: 'red',
-                                border: "1px solid red"}}> Sale  </span>):<span></span>
-                        }
-                        <img src={this.props.info?this.props.info.src:placeholderImage} width="100%" height="80%"/>
-                        <Container> {this.props.info.productName}  </Container>
-                        <Container style={{color:"#333", letterSpacing: "normal"}}> $ {this.props.info.originPrice} </Container>
-                    </Link>
-            </div>
-        )
-    }
+    const dispatch = useAppDispatch()
+    return (
+        <div className='product-list-item'>
+                <Link 
+                    onClick={() => {
+                        dispatch(setCurrentProduct({
+                            productId: info.productId,
+                            productName: info.productName,
+                            originPrice: info.originPrice,
+                            discountPrice: info.discountPrice,
+                            rating: info.rating,
+                            src: info.src
+                        }))
+                    }}
+                    style={{textDecoration: 'none'}} 
+                    to={info.productId.toString()}> 
+                    {
+                        Math.floor(Math.random() * 3) === 1? 
+                        (<span style={{
+                            position: 'absolute',
+                            top: "0px",
+                            left: '0px',
+                            color:"white", 
+                            margin: "0px 0 0 24px",
+                            padding: "0 5px",
+                            borderRadius: "25px",
+                            backgroundColor: 'red',
+                            border: "1px solid red"}}> Sale  </span>):<span></span>
+                    }
+                    <img src={info?info.src:placeholderImage} width="100%" height="80%"/>
+                    <Container> {info.productName}  </Container>
+                    <Container style={{color:"#333", letterSpacing: "normal"}}> $ {info.originPrice} </Container>
+                </Link>
+        </div>
+    )
 }
 
 export default ProductListItem

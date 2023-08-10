@@ -11,12 +11,11 @@ import { TransactionView } from './Transactions';
 import { FilterParam, ProductInfo, ProductViewProps, ProductsView } from './products';
 import { Product } from './products/Product';
 import { useDocumentTitle } from '../utils';
-import { Test } from './Test';
+import { Test } from './myTest/Test';
 import { ProductList } from './products/ProductList';
 import { products } from './products/mock';
 import { Grid } from '@mui/material';
 import { RegisterView } from './register';
-
 
 const Theme = () => {
 
@@ -38,6 +37,7 @@ const Theme = () => {
             }
         }).catch(() => setProductList(products))
     }, [params])
+
     return (
         <>
         <Router>
@@ -55,7 +55,7 @@ const Theme = () => {
                         throw new Error('Function not implemented.');
                     } }/>} />
                     <Route path={'products'} element={<ProductList productList={productList} />}/>
-                    <Route path={':productId/*'} element={<Product productId='idnfj325' productName='product name' productPrice={23}/>}/>
+                    <Route path={':productId/*'} element={<Product />}/>
                     <Route path={'/test'} element={<Test />} />
 
                     <Route path={'/login'} element={<LoginView />}/>
