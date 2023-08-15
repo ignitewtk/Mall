@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Container } from '@mui/material';
-import ProductListItem from './productListItem';
+import ProductListItem from './ProductListItem';
 import { ProductInfo } from '.';
 
 interface ProductListProps {

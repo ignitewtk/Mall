@@ -4,6 +4,7 @@ import { Container } from '@mui/material';
 
 import { useAppDispatch } from '../../hooks'
 import { setCurrentProduct } from './productSlice'
+import { setItemAmount } from '../cart/cartSlice';
 import { ProductInfo } from '.';
 import placeholderImage from './placeholder-image.png';
 
@@ -45,6 +46,14 @@ const ProductListItem = ({info}: Props) => {
                 <img src={info?info.src:placeholderImage} className="product-list-image"/>
                 <button onClick={(e)=>{
                     e.preventDefault()
+                    let item = {
+                        productId: info.productId,
+                        productName: info.productName,
+                        imgUrl: info.src,
+                        price: info.discountPrice,
+                        amount: 1
+                    }
+                    dispatch(setItemAmount(item))
                 }} className='list-add-button'> + </button> 
                 <Container> {info.productName}  </Container>
                 <Container style={{color:"#333", letterSpacing: "normal"}}> $ {info.originPrice} </Container>

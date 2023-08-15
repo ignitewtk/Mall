@@ -1,5 +1,11 @@
+/**
+ * TODO: add redux state management for cart component
+ */
+
 import * as React from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { Avatar, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
@@ -7,8 +13,8 @@ import Logout from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Drawer from '@mui/material/Drawer';
+
 import { useAuth } from '../context';
-import { useState } from 'react';
 import CartView from './cart';
 
 function AccountMenu() {

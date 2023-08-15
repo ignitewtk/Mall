@@ -1,19 +1,24 @@
 import * as React from 'react'
 import CartListItem from './CartListItem'
+import { useAppDispatch, useAppSelector } from '../../hooks'
+import { setItemAmount, deleteItem } from './cartSlice'
+import '../../styles/cart.css';
 
 const CartView = () => {
-    const l = [1, 2, 3, 4]
+    const cartList = useAppSelector(state => state.cart.cartList)
+    const total = useAppSelector(state => state.cart.totalValue)
+    console.log('CartList:', cartList)
     return (
         <>
-        <div style={{ backgroundColor:'white', width:'300px', height:'100vh'}}>
-            Hello
-            <ul className='cart-list-item'>
-                {
-                    l.map((u) => <CartListItem u={u}/>)
-                }
-            </ul>
-            
-        </div> 
+            <div className='cart-container' >
+                <ul className='cart-list'>
+                    {
+                        cartList.map((item) => <CartListItem item={item}/>)
+                    }
+                </ul>
+                <div> Total: <span className='cart-stats'> {total} </span></div>
+                <button> Check </button>
+            </div> 
         </>
     )
 }

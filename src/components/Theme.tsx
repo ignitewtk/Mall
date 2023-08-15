@@ -1,9 +1,12 @@
 import * as React from 'react'
-import { Routes, Route, Navigate } from 'react-router'
+import { Routes, Route } from 'react-router'
 import { Link, BrowserRouter as Router } from 'react-router-dom';
+
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Divider from '@mui/material/Divider';
+import { Grid } from '@mui/material';
+
 import MainMenu from './MainMenu';
 import AccountMenu from './AccountMenu';
 import { LoginView } from './login';
@@ -14,22 +17,23 @@ import { useDocumentTitle } from '../utils';
 import { Test } from './myTest/Test';
 import { ProductList } from './products/ProductList';
 import { products } from './products/mock';
-import { Grid } from '@mui/material';
 import { RegisterView } from './register';
 
 const Theme = () => {
-
-    useDocumentTitle('MALL TS LNX')
 
     const [params, setParams] = React.useState<FilterParam>({
         categories: [],
         ratings: [],
         sort: 'Price+'
     })
-    
     const [productList, setProductList] = React.useState<ProductInfo[]>([])
     
+    useDocumentTitle('MALL TS LNX')
+
     // Initialize product list when first lauch the page
+    /**
+     * TODO: update apiURL
+     */
     React.useEffect(() => {
         fetch(`http://localhost:3001/products?`).then(async response => {
             if (response.ok) {
@@ -39,7 +43,6 @@ const Theme = () => {
     }, [params])
 
     return (
-        <>
         <Router>
             <Box id='theme-header'> 
                 <Link to='/' style={{textDecoration: 'none'}}>
@@ -99,9 +102,6 @@ const Theme = () => {
                 </Grid>
             </Grid>
         </Router>
-
-        
-        </>
     )
 }
 
