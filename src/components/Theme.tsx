@@ -10,7 +10,7 @@ import { Grid } from '@mui/material';
 import MainMenu from './MainMenu';
 import AccountMenu from './AccountMenu';
 import { LoginView } from './login';
-import { TransactionView } from './Transactions';
+// import { TransactionView } from './Transactions';
 import { FilterParam, ProductInfo, ProductViewProps, ProductsView } from './products';
 import { Product } from './products/Product';
 import { useDocumentTitle } from '../utils';
@@ -65,7 +65,7 @@ const Theme = () => {
                     <Route path={'/register'} element={<RegisterView />}/>
                     <Route path={'/forgetPw'} element={<div>Forget Password </div>}/>
                     
-                    <Route path={'/transaction'} element={<TransactionView />}/>
+                    {/* <Route path={'/transaction'} element={<TransactionView />}/> */}
                 </Routes>
             </Container>  
             <Grid id='theme-footer' container spacing={2}>
