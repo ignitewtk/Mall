@@ -1,12 +1,42 @@
 import * as React from 'react'
-import { useState } from "react"
-import { ProductInfo } from "."
-import { useAppDispatch } from "../../hooks"
-import { Link } from "react-router-dom"
-import { setCurrentProduct } from "./productSlice"
-import { setItemAmount } from "../cart/cartSlice"
-import { Alert, Collapse, Container } from "@mui/material"
+import { Container } from '@mui/material';
+
+import { ProductInfo } from '.';
+import ProductListItem from './ProductListItem';
+
+interface ProductListProps {
+    productList: ProductInfo[]
+}
+
+export const ProductList = React.memo(({productList}: ProductListProps) => {
+    return (
+        <Container id='product-list'> 
+        
+        {
+            productList.map((productInfo) => 
+            <ProductListItem key={productInfo.productId} info={productInfo}/> )
+        }
+        
+        </Container>
+        
+    )
+})
+
+
+
+
+-----------
+import * as React from 'react'
+import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Alert, Collapse, Container } from '@mui/material';
+
+import { useAppDispatch } from '../../hooks'
+import { setCurrentProduct } from './productSlice'
+import { setItemAmount } from '../cart/cartSlice';
+import { ProductInfo } from '.';
 import placeholderImage from './placeholder-image.png';
+
 
 interface Props {
     info: ProductInfo
