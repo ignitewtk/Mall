@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router'
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 
@@ -9,17 +10,21 @@ import { Grid } from '@mui/material';
 
 import MainMenu from './MainMenu';
 import AccountMenu from './AccountMenu';
-import { LoginView } from './login';
+// import { LoginView } from './login';
 // import { TransactionView } from './Transactions';
 import { FilterParam, ProductInfo, ProductViewProps, ProductsView } from './products';
-import { Product } from './products/Product';
+// import { Product } from './products/Product';
 import { useDocumentTitle } from '../utils';
 import { Test } from './myTest/Test';
 import { ProductList } from './products/ProductList';
 import { products } from './products/mock';
-import { RegisterView } from './register';
+// import { RegisterView } from './register';
 import Payment from './cart/Payment';
 
+
+const Product = lazy(() => import('./products/Product').then(({Product}) => ({default: Product})))
+const LoginView = lazy(() => import('./login').then(({LoginView}) => ({default: LoginView})))
+const RegisterView = lazy(() => import('./register').then(({RegisterView}) => ({default: RegisterView})))
 
 const Theme = () => {
 
@@ -37,11 +42,20 @@ const Theme = () => {
      * TODO: update apiURL
      */
     React.useEffect(() => {
-        fetch(`http://localhost:3001/products?`).then(async response => {
+        
+        fetch(`https://backend202307112242.azurewebsites.net/product/productlist`).then(async response => {
             if (response.ok) {
                 setProductList(await response.json())
+            } else {
+                setProductList(products)
             }
         }).catch(() => setProductList(products))
+
+        // fetch(`http://localhost:3001/products?`).then(async response => {
+        //     if (response.ok) {
+        //         setProductList(await response.json())
+        //     }
+        // }).catch(() => setProductList(products))
     }, [params])
 
     return (
@@ -60,13 +74,25 @@ const Theme = () => {
                         throw new Error('Function not implemented.');
                     } }/>} />
                     <Route path={'products'} element={<ProductList productList={productList} />}/>
-                    <Route path={':productId/*'} element={<Product />}/>
+                    <Route path={':productId/*'} element={
+                        <Suspense>
+                            <Product />
+                        </Suspense>}/>
                     <Route path={'/test'} element={<Test />} />
 
-                    <Route path={'/login'} element={<LoginView />}/>
-                    <Route path={'/register'} element={<RegisterView />}/>
+                    <Route path={'/login'} element={
+                        <Suspense>
+                            <LoginView />
+                        </Suspense>}/>
+                    <Route path={'/register'} element={
+                        <Suspense>
+                            <RegisterView />
+                        </Suspense>}/>
                     <Route path={'/forgetPw'} element={<div>Forget Password </div>}/>
-                    <Route path={'/payment'} element={<Payment />} />
+                    <Route path={'/payment'} element={
+                         <Suspense>
+                            <Payment />
+                        </Suspense>}/>
                     {/* <Route path={'/transaction'} element={<TransactionView />}/> */}
                 </Routes>
             </Container>  
