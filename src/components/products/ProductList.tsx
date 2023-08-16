@@ -1,7 +1,7 @@
 import React from "react"
 import { ProductInfo } from "."
 import { Container } from "@mui/material"
-import ProductListItem from "./ProductListItem"
+import ListItem from "./ListItem"
 
 
 
@@ -15,7 +15,7 @@ export const ProductList = React.memo(({productList}: ProductListProps) => {
         
         {
             productList.map((productInfo) => 
-            <ProductListItem key={productInfo.productId} info={productInfo}/> )
+            <ListItem key={productInfo.productId} info={productInfo}/>)
         }
         
         </Container>

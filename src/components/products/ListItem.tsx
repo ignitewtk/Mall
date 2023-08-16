@@ -12,7 +12,7 @@ interface Props {
     info: ProductInfo
 }
 
-const ProductListItem = ({info}: Props) => {
+const ListItem = ({info}: Props) => {
 
     const [alertShowed, setAlertShow] = useState(false)
     const dispatch = useAppDispatch()
@@ -73,4 +73,4 @@ const ProductListItem = ({info}: Props) => {
     )
 }
 
-export default ProductListItem
+export default ListItem
