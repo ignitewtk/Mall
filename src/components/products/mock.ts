@@ -2,7 +2,7 @@ export const products = [
     {
         "productId": "1",
         "productName": "Test Pork Loin",
-        "originPrice": 10.56,
+        "originPrice": 8.5,
         "discountPrice": 8.5,
         "rating": 3,
         "src": "images/PorkLoin.jpg"

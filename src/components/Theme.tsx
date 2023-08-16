@@ -18,6 +18,8 @@ import { Test } from './myTest/Test';
 import { ProductList } from './products/ProductList';
 import { products } from './products/mock';
 import { RegisterView } from './register';
+import Payment from './cart/Payment';
+
 
 const Theme = () => {
 
@@ -64,7 +66,7 @@ const Theme = () => {
                     <Route path={'/login'} element={<LoginView />}/>
                     <Route path={'/register'} element={<RegisterView />}/>
                     <Route path={'/forgetPw'} element={<div>Forget Password </div>}/>
-                    
+                    <Route path={'/payment'} element={<Payment />} />
                     {/* <Route path={'/transaction'} element={<TransactionView />}/> */}
                 </Routes>
             </Container>  

@@ -5,10 +5,9 @@ import { setItemAmount, deleteItem } from './cartSlice'
 import '../../styles/cart.css';
 import { useNavigate } from 'react-router-dom';
 
-const CartView = () => {
+const Payment = () => {
     const cartList = useAppSelector(state => state.cart.cartList)
     const total = useAppSelector(state => state.cart.totalValue)
-    const navigate = useNavigate()
     
     return (
         <>
@@ -19,12 +18,9 @@ const CartView = () => {
                     }
                 </ul>
                 <div> Total: <span className='cart-stats'> {total} </span></div>
-                <button onClick={()=>{
-                    navigate('/payment')
-                }}> Check </button>
             </div> 
         </>
     )
 }
 
-export default CartView
+export default Payment

@@ -33,16 +33,29 @@ export const cartSlice = createSlice({
                     let updatedItem = {
                         ...state.cartList[i]
                     }
-                    const newTotal = state.totalValue - state.cartList[i].price * state.cartList[i].amount + item.price * item.amount
-                    const newList = [
+                    if (item.amount === 0) {
+                        const newTotal = state.totalValue - state.cartList[i].price * state.cartList[i].amount + item.price * item.amount
+                        const newList = [
                         ...state.cartList.slice(0, i),
-                        updatedItem,
                         ...state.cartList.slice(i+1)
-                    ]
-                    return {
-                        ...state,
-                        cartList: newList,
-                        totalValue: newTotal
+                        ]
+                        return {
+                            ...state,
+                            cartList: newList,
+                            totalValue: newTotal
+                        }
+                    } else {
+                        const newTotal = state.totalValue - state.cartList[i].price * state.cartList[i].amount + item.price * item.amount
+                        const newList = [
+                        ...state.cartList.slice(0, i),
+                        item,
+                        ...state.cartList.slice(i+1)
+                        ]
+                        return {
+                            ...state,
+                            cartList: newList,
+                            totalValue: newTotal
+                        }
                     }
                 }
             }
