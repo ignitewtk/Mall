@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Container } from '@mui/material';
+import { useState } from 'react';
+import { Alert, Collapse, Container } from '@mui/material';
 
 import { useAppDispatch } from '../../hooks'
 import { setCurrentProduct } from './productSlice'
@@ -8,12 +9,14 @@ import { setItemAmount } from '../cart/cartSlice';
 import { ProductInfo } from '.';
 import placeholderImage from './placeholder-image.png';
 
+
 interface Props {
     info: ProductInfo
 }
 
 const ProductListItem = ({info}: Props) => {
 
+    const [alertShowed, setAlertShow] = useState(false)
     const dispatch = useAppDispatch()
     return (
         <div className='product-list-item'>
@@ -27,6 +30,11 @@ const ProductListItem = ({info}: Props) => {
                         rating: info.rating,
                         src: info.src
                     }))
+                    setAlertShow(true)
+                    setTimeout(() => {
+                        setAlertShow(false)
+                    }, 1000)
+
                 }}
                 style={{textDecoration: 'none'}} 
                 to={info.productId.toString()}> 
@@ -58,7 +66,11 @@ const ProductListItem = ({info}: Props) => {
                 <Container> {info.productName}  </Container>
                 <Container style={{color:"#333", letterSpacing: "normal"}}> $ {info.originPrice} </Container>
             </Link>
-            
+            <Collapse in={alertShowed}>
+                <Alert style={{ position: "fixed", top:"5%", left:"45%"}}>
+                    Item is added.
+                </Alert>
+            </Collapse>
         </div>
     )
 }
